@@ -8,7 +8,6 @@
     "allowJs": true,
     "moduleResolution": "node",
 
-    // это влияет на способ импортов
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
