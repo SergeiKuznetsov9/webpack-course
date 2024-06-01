@@ -12,6 +12,8 @@
   "description": "",
   "devDependencies": {
     "@types/node": "^20.13.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
     "ts-loader": "^9.5.1",
@@ -22,6 +24,8 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "html-webpack-plugin": "^5.6.0"
+    "html-webpack-plugin": "^5.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
