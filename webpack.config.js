@@ -1,4 +1,6 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = (env) => ({
   //  точка входа в приложение. Может быть несколько. Тогда и бандлов
@@ -23,4 +25,14 @@ module.exports = (env) => ({
   //   вернет конфиг.
 
   mode: env.mode ?? "development",
+
+  //   тут содержаться все плагины
+  plugins: [
+    // если не указать template, то вебпак создаст HTML и укажет в скрипте путь к бандлу.
+    // Однако созданный нами HTML c div не учтется
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public", "index.html"),
+    }),
+    new webpack.ProgressPlugin(),
+  ],
 });
