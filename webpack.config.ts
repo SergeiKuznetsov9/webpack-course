@@ -1,8 +1,14 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import path from "path";
+import webpack from "webpack";
 
-module.exports = (env) => ({
+type Mode = "development" | "none" | "production";
+
+type EnvVariables = {
+  mode: Mode;
+};
+
+export default (env: EnvVariables): webpack.Configuration => ({
   //  если вместо js файлов добавить ts, сборка упадет. Вебпак - не знает, что за файлы с
   //   расширением ts. Как собственно и с другим расширением. Ему необходимо объяснить это
   // Рассказать как правильно загружать данные файлы. Это делают лоудеры.
