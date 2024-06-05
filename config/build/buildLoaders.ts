@@ -17,7 +17,6 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
       {
         loader: "css-loader",
         options: {
-          // Эта настройка отвечает за нэйминг стилей в браузере
           modules: {
             localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]",
           },
