@@ -5,6 +5,11 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
   const isDev = options.mode === "development";
 
+  const assetLoader = {
+    test: /\.(png|svg|jpg|jpeg|gif)$/i,
+    type: "asset/resource",
+  };
+
   const cssLoader = {
     test: /\.css$/i,
     use: [isDev ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader"],
@@ -31,5 +36,5 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
     use: "ts-loader",
     exclude: /node_modules/,
   };
-  return [cssLoader, scssLoader, tsLoader];
+  return [cssLoader, scssLoader, tsLoader, assetLoader];
 }
