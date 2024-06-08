@@ -6,9 +6,7 @@ export function buildResolvers(
 ): Configuration["resolve"] {
   return {
     extensions: [".tsx", ".ts", ".js"],
-    // для возможности использовать относительный импорт
     alias: {
-      // определяем символ, который будет соответствовать корню
       "@": options.paths.src,
     },
   };

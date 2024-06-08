@@ -3,7 +3,6 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack, { Configuration } from "webpack";
 import { BuildOptions } from "./types/types";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 export function buildPlugins(options: BuildOptions) {
   const isDev = options.mode === "development";
@@ -31,7 +30,6 @@ export function buildPlugins(options: BuildOptions) {
 
   if (analyzer) {
     plugins.push(
-      // После добавления этого плагина, при прод сборке будет открываться страница с анализатором бандла
       new BundleAnalyzerPlugin()
     );
   }

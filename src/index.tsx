@@ -36,7 +36,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// теперь ленивые компоненты подгружаются чанками
 
 const container = createRoot(root);
 
