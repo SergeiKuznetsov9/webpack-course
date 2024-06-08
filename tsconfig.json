@@ -9,7 +9,16 @@
     "moduleResolution": "node",
 
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    /*
+      поскольку в проекте используется TS, то его тоже нужно настроить для использования алиасов,
+      указав два дополнительных свойства
+    */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "ts-node": {
     "compilerOptions": {
