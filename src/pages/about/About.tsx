@@ -9,8 +9,7 @@ const About = () => (
     <img src={Jpg} />
     <div>{Png}</div>
     <img src={Png} />
-    <div>{SVGType}</div>
-    <img src={SVGType} />
+    <SVGType fill="red" stroke="red" width={50} height={50} />
   </>
 );
 
