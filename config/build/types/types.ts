@@ -6,11 +6,13 @@ export type BuildPaths = {
 };
 
 export type BuildMode = "development" | "none" | "production";
+export type PlatformType = "desktop" | "mobile";
 
 export type EnvVariables = {
   mode: BuildMode;
   port: number;
   analyzer: boolean;
+  platform: PlatformType;
 };
 
 export type BuildOptions = {
@@ -18,4 +20,5 @@ export type BuildOptions = {
   paths: BuildPaths;
   mode: BuildMode;
   analyzer: boolean;
+  platform: PlatformType;
 };
