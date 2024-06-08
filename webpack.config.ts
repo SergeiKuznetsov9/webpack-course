@@ -11,4 +11,5 @@ export default (env: EnvVariables) =>
       output: path.resolve(__dirname, "build"),
     },
     mode: env.mode ?? "development",
+    analyzer: env.analyzer
   });
