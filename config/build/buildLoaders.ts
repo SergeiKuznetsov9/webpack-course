@@ -5,8 +5,6 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
   const isDev = options.mode === "development";
 
-  // для использования svg в виде модулей, установим лоудер npm install --save-dev @svgr/webpack
-  // и сделаем такую настройку
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,

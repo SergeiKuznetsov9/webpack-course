@@ -13,15 +13,8 @@ export function buildPlugins(options: BuildOptions) {
   const plugins: Configuration["plugins"] = [
     new HtmlWebpackPlugin({
       template: options.paths.html,
-      // для добавления фавикона, в этот плагин нужно добавить доп настройку:
       favicon: path.resolve(options.paths.public, "favicon.ico"),
     }),
-    // при необходимости использования в коде значений переменных окружения, можно использовать
-    // этот плагин. Для этого в него нужно прокинуть объект с переменными, которые мы хотим использовать.
-    // Значения переменных необходимо обернуть в JSON.stringify
-    // Теперь мы можем использовать их в компонентах.
-    // Если что то будет ренедриться приопределенном значении переменной, то сборщик выкенет из бандла код
-    // в том случае, если при текущем значении переменной, код ренедерится не должен. Это называется tree-shaking
     new DefinePlugin({
       __PLATFORM__: JSON.stringify(options.platform),
     }),
