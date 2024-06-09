@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack, { Configuration, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import path from "path";
 
 export function buildPlugins(options: BuildOptions) {
   const isDev = options.mode === "development";
@@ -12,6 +13,8 @@ export function buildPlugins(options: BuildOptions) {
   const plugins: Configuration["plugins"] = [
     new HtmlWebpackPlugin({
       template: options.paths.html,
+      // для добавления фавикона, в этот плагин нужно добавить доп настройку:
+      favicon: path.resolve(options.paths.public, "favicon.ico"),
     }),
     // при необходимости использования в коде значений переменных окружения, можно использовать
     // этот плагин. Для этого в него нужно прокинуть объект с переменными, которые мы хотим использовать.

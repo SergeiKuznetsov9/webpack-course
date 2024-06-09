@@ -10,6 +10,7 @@ export default (env: EnvVariables) =>
       entry: path.resolve(__dirname, "src", "index.tsx"),
       html: path.resolve(__dirname, "public", "index.html"),
       output: path.resolve(__dirname, "build"),
+      public: path.resolve(__dirname, "public"),
     },
     mode: env.mode ?? "development",
     analyzer: env.analyzer,
