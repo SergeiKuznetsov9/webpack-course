@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack, { Configuration, DefinePlugin } from "webpack";
 import { BuildOptions } from "./types/types";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import CopyPlugin from "copy-webpack-plugin";
 import path from "path";
 
 export function buildPlugins(options: BuildOptions) {
@@ -29,6 +30,20 @@ export function buildPlugins(options: BuildOptions) {
       new MiniCssExtractPlugin({
         filename: "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
+      })
+    );
+    // Предположим у нас имеются переводы. Для того, чтобы они попали в отдельные файлы
+    //  в финальной сборке, нужно воспользоваться специальным плагином copy-webpack-plugin
+    // Теперь при продсборке будет создана дирректория locales, куда будут помещены файлы
+    // переводов
+    plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(options.paths.public, "locales"),
+            to: path.resolve(options.paths.output, "locales"),
+          },
+        ],
       })
     );
   }
